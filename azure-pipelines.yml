@@ -1,0 +1,16 @@
+pool:
+  vmImage: 'ubuntu-20.04'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Configure Node.js'
+
+  - script: yarn install
+    displayName: 'Install dependencies'
+    env:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+  - script: yarn release:build
+    displayName: 'Run build'
