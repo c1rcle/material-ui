@@ -1,0 +1,9 @@
+steps:
+  - name: node:14
+    entrypoint: yarn
+    env: ['PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1']
+    args: ['install']
+  - name: node:14
+    entrypoint: yarn
+    args: ['release:build']
+timeout: 3600s

@@ -1,0 +1,16 @@
+version: 0.2
+
+env:
+  variables:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14.x
+  pre_build:
+    commands:
+      - yarn install
+  build:
+    commands:
+      - yarn release:build
